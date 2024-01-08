@@ -16,6 +16,7 @@ export type Props = {
   type?: 'submit' | 'button'
   disabled?: boolean
   invert?: boolean
+  children?: React.ReactNode
 }
 
 export const Button: React.FC<Props> = ({
@@ -29,6 +30,7 @@ export const Button: React.FC<Props> = ({
   type = 'button',
   disabled,
   invert,
+  children,
 }) => {
   let el = elFromProps
 
@@ -55,6 +57,7 @@ export const Button: React.FC<Props> = ({
     return (
       <Link href={href || ''} className={className} {...newTabProps} onClick={onClick}>
         {content}
+        {children}
       </Link>
     )
   }
