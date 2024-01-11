@@ -3,7 +3,8 @@ import { Metadata } from 'next'
 import { draftMode } from 'next/headers'
 import { notFound } from 'next/navigation'
 
-import { Category, Page } from '../../../payload/payload-types'
+import type { Category, Page } from '../../../payload/payload-types'
+// Now you can use Category and Page as types without importing their values
 import { staticHome } from '../../../payload/seed/home-static'
 import { fetchDoc } from '../../_api/fetchDoc'
 import { fetchDocs } from '../../_api/fetchDocs'
