@@ -17,7 +17,7 @@ export const priceFromJSON = (priceJSON: string, quantity: number = 1, raw?: boo
 
       if (raw) return priceValue.toString()
 
-      price = (priceValue / 100).toLocaleString('en-US', {
+      price = (priceValue / 100).toLocaleString('en-IN', {
         style: 'currency',
         currency: 'INR', // TODO: use `parsed.currency`
       })
