@@ -21,6 +21,7 @@ export const CustomerSelect: React.FC<TextField> = props => {
           credentials: 'include',
           headers: {
             'Content-Type': 'application/json',
+            Authorization: `Bearer ${process.env.STRIPE_SECRET_KEY}`,
           },
         })
 
