@@ -1,104 +1,63 @@
 @import '../../_css/common';
 
-.card {
-  border-radius: 4px;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
+// this is to make up for the space taken by the fixed header, since the scroll method does not accept an offset parameter
+.scrollRef {
+  position: absolute;
+  left: 0;
+  top: calc(var(--base) * -5);
+  @include mid-break {
+    top: calc(var(--base) * -2);
+  }
 }
 
-.content {
-  padding: 8px 0;
+.introContent {
+  position: relative;
+  margin-bottom: calc(var(--base) * 2);
+
+  @include mid-break {
+    margin-bottom: var(--base);
+  }
+}
+
+.resultCountWrapper {
   display: flex;
-  flex-direction: column;
-  gap: 4px;
-  background-color: white;
+  margin-bottom: calc(var(--base) * 2);
+
+  @include mid-break {
+    margin-bottom: var(--base);
+  }
+}
+
+.pageRange {
+  margin-bottom: var(--base);
+
+  @include mid-break {
+    margin-bottom: var(--base);
+  }
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(30%, 1fr));
+  gap: 30px;
+  padding: 0;
   width: 100%;
+
+  @include mid-break {
+    gap: 20px;
+  }
 
   @include small-break {
-    padding: calc(var(--base) / 2);
-    gap: calc(var(--base) / 4);
+    grid-template-columns: 100%;
   }
 }
 
-.title {
-  margin: 0;
-  font-size: 20px;
-  font-weight: 700;
-
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.centerAlign {
-  align-items: center;
-}
-
-.body {
-  flex-grow: 1;
-}
-
-.priceActions {
-  gap: var(--base);
-}
-
-.price {
-  font-weight: 600;
-  margin: 0;
-}
-
-.leader {
-  @extend %label;
+.pagination {
+  margin-top: calc(var(--base) * 2);
   display: flex;
-  gap: var(--base);
-}
-
-.description {
-  margin: 0;
-  line-height: 24px;
-
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.hideImageOnMobile {
-  @include mid-break {
-    display: none;
-  }
-}
-
-.mediaWrapper {
-  text-decoration: none;
-  display: block;
-  position: relative;
-  min-height: 262px;
-  background-color: var(--color-dark-50);
-}
-
-.image {
-  padding: 24px;
-  object-fit: contain;
-  aspect-ratio: 1/1;
-  max-width: 100%;
-}
-
-.placeholder {
-  background-color: var(--theme-elevation-50);
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
   justify-content: center;
-}
-
-.actions {
-  display: flex;
-  align-items: center;
 
   @include mid-break {
-    flex-direction: column;
-    align-items: flex-start;
+    margin-top: var(--base);
   }
 }
