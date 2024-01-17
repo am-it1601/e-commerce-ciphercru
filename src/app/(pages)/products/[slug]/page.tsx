@@ -35,6 +35,7 @@ export default async function Product({ params: { slug } }) {
   }
 
   const { relatedProducts } = product
+  // console.log({ relatedProducts, product })
 
   return (
     <>
@@ -52,12 +53,15 @@ export default async function Product({ params: { slug } }) {
                 type: 'h3',
                 children: [
                   {
-                    text: 'Related Products',
+                    text: 'Similar Products',
                   },
                 ],
               },
             ],
-            docs: relatedProducts,
+            docs:
+              relatedProducts && relatedProducts.length > 0
+                ? relatedProducts
+                : ('No related products' as any),
           },
         ]}
       />

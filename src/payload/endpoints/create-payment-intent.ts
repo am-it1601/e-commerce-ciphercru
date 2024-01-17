@@ -98,6 +98,11 @@ export const createPaymentIntent: PayloadHandler = async (req, res): Promise<voi
       amount: total,
       currency: 'usd',
       payment_method_types: ['card'],
+      shipping: {
+        address: { city: 'stripe' },
+        name: 'sumit',
+      },
+      // payment_method_options:""
     })
 
     res.send({ client_secret: paymentIntent.client_secret })
