@@ -503,7 +503,7 @@ export interface Header {
 }
 export interface Footer {
   id: string;
-  copyright?: string | null;
+  copyright: string;
   navItems?:
     | {
         link: {

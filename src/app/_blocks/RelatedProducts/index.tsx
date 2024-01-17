@@ -11,7 +11,7 @@ export type RelatedProductsProps = {
   blockType: 'relatedProducts'
   blockName: string
   introContent?: any
-  docs?: (string | Product)[]
+  docs?: any
   relationTo: 'products'
 }
 
@@ -27,24 +27,28 @@ export const RelatedProducts: React.FC<RelatedProductsProps> = props => {
       )}
       <Gutter>
         <div className={classes.grid}>
-          {docs?.map((doc, index) => {
-            if (typeof doc === 'string') return null
+          {Array.isArray(docs) && docs.length > 0 ? (
+            docs.map((doc, index) => {
+              if (typeof doc === 'string') return <span key={index}>Data not found</span>
 
-            return (
-              <div
-                key={index}
-                className={[
-                  classes.column,
-                  docs.length === 2 && classes['cols-half'],
-                  docs.length >= 3 && classes['cols-thirds'],
-                ]
-                  .filter(Boolean)
-                  .join(' ')}
-              >
-                <Card relationTo={relationTo} doc={doc} showCategories />
-              </div>
-            )
-          })}
+              return (
+                <div
+                  key={index}
+                  className={[
+                    classes.column,
+                    docs.length === 2 && classes['cols-half'],
+                    docs.length >= 3 && classes['cols-thirds'],
+                  ]
+                    .filter(Boolean)
+                    .join(' ')}
+                >
+                  <Card relationTo={relationTo} doc={doc} showCategories />
+                </div>
+              )
+            })
+          ) : (
+            <span>No Related Product found .</span>
+          )}
         </div>
       </Gutter>
     </div>

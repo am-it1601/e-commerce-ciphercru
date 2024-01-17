@@ -33,6 +33,7 @@ const CartItem = ({ product, title, metaImage, qty, addItemToCart }) => {
     setQuantity(updatedQty)
     addItemToCart({ product, quantity: Number(updatedQty) })
   }
+  console.log(product.slug)
 
   return (
     <li className={classes.item} key={title}>
